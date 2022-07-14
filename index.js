@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
+const userRoute = require('./routes/user');
+
+app.use(express.json());
 
 mongoose
   .connect(
@@ -9,6 +12,8 @@ mongoose
   )
   .then(() => console.log('db connection successfull'))
   .catch((err) => console.log(console.log(err)));
+
+app.use('/api/users', userRoute);
 
 app.listen(5000, () => {
   console.log('Backend server is running');
