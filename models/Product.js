@@ -8,7 +8,7 @@ const ProductSchema = new mongoose.Schema(
     categories: { type: Array, required: true },
     club: { type: String },
     size: { type: Array },
-    jerseyType: { type: Array, required: true },
+    jerseyType: { type: Array, default: ['Home', 'Away', 'Third'] },
     price: { type: Number, required: true },
     inStock: { type: Boolean, default: true },
   },
